@@ -2,8 +2,23 @@
 	<head>
 		<meta charset='utf-8' /><meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
 		<title>钱包H5测试页面</title>
+		<script>
+			function getProAddr() {
+				var addr = ProbeLeagueApp.getHidaoAddr();
+				alert("pro钱包地址="+addr);
+			}
+		</script>
 	</head>
 	<body>
-		<h1>我是钱包页面</h1>
+		<h1>我是测试页面：</h1>
+		<textarea>https://htmlpreview.github.io/?https://114.215.177.69:5151/xl_du/test/blob/master/wallet_h5_test.html</textarea>
+		
+		<br/>
+		<hr/>
+		<br/>
+		<a href="javascript:getProAddr();">获取pro钱包地址</a>
+		<br/>
+		<br/>
+		<a href="javascript:ProbeLeagueApp.openNewBrowser(null, 'http://league.tst.qianqianshijie.com/wap/miningIndex');">新窗口打开挖矿H5页面</a>
 	</body>
 </html>
