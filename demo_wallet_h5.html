@@ -7,6 +7,11 @@
 				var addr = ProbeLeagueApp.getHidaoAddr();
 				alert("pro钱包地址="+addr);
 			}
+			
+			// app获取到授权信息的回调函数
+			function setPID(data) {
+				alert("获取到的授权关联pid=" + data);
+			}
 		</script>
 	</head>
 	<body>
@@ -20,5 +25,8 @@
 		<br/>
 		<br/>
 		<a href="javascript:ProbeLeagueApp.openNewBrowser(null, 'http://league.tst.qianqianshijie.com/wap/miningIndex');">新窗口打开挖矿H5页面</a>
+		<br/>
+		<br/>
+		<a href="javascript:ProbeLeagueApp.getWalletUserAuthorize('这是授权提示文案');">异步获取关联pid授权</a>
 	</body>
 </html>
