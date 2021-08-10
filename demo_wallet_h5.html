@@ -12,6 +12,11 @@
 			function setPID(data) {
 				alert("获取到的授权关联pid=" + data);
 			}
+			
+			// app获取到联盟token的回调函数
+			function setPID(data) {
+				alert("获取到联盟token=" + data);
+			}
 		</script>
 	</head>
 	<body>
@@ -27,6 +32,9 @@
 		<a href="javascript:ProbeLeagueApp.openNewBrowser(null, 'http://league.tst.qianqianshijie.com/wap/miningIndex');">新窗口打开挖矿H5页面</a>
 		<br/>
 		<br/>
-		<a href="javascript:ProbeLeagueApp.getWalletUserAuthorize('这是授权提示文案');">异步获取关联pid授权</a>
+		<a href="javascript:ProbeLeagueApp.getWalletUserAuthorize('测试异步关联pid授权，并回调pid');">异步关联pid授权，并回调pid</a>
+		<br/>
+		<br/>
+		<a href="javascript:ProbeLeagueApp.getWalletChainUserAuthorize('测试异步关联pid授权，并回调联盟token');">异步关联pid授权，并回调联盟token</a>
 	</body>
 </html>
