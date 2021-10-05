@@ -1,0 +1,26 @@
+﻿<html>
+	<head>
+		<title>首页</title>
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<script type="text/javascript">
+				// app点击返回按钮回调函数
+				// 返回true：表示h5已经处理改事件，app不做任何操作
+				// 返回非true或h5没有提供该回调函数：app关闭当前浏览器窗口
+				function onAppWebBackClick() {
+					alert("我是左边返回按钮，我被点击了，我将执行浏览器历史记录返回操作");
+					ProbeMallApp.goBack();
+					return true;
+				}
+
+
+		</script>
+    </head>
+    <body style="text-align:center">
+		<h1 style="margin-top: 100px">首页</h1>
+		<a href="probe://mall.app/com.probe.mall.ui.activity.IntegralActivity">【积分】</a>
+		<hr/>
+		<h2>H5地址提供后需替换</h2>
+
+		<p style="color:#FF0000; font-size:14px">H5测试入口：<br/>【我的】→【关于我们】→长安图标→填入/扫码地址→打开网页</p>
+    </body>
+</html>
