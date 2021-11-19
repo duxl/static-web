@@ -8,10 +8,13 @@
 				// 返回非true或h5没有提供该回调函数：app关闭当前浏览器窗口
 				function onAppWebBackClick() {
 					alert("我是左边返回按钮，我被点击了，我将执行浏览器历史记录返回操作");
-					ProbeLeagueApp.goBack();
+					ProbeMallApp.goBack();
 					return true;
 				}
 
+				function openUrl(url) {
+					ProbeMallApp.openNewBrowser('', url);
+				}
 
 		</script>
     </head>
@@ -26,11 +29,11 @@
 		<br/>
 
 		<h3>所有项目通用</h3>
-		<a href="https://duxl.github.io/AndroidQuicklib/app/src/main/assets/DemoCallWebWebApi.html?app_instance_name=ProbeMallApp">1.通用api示例</a><br/><br/>
+		<a href="javascript:openUrl('https://duxl.github.io/AndroidQuicklib/app/src/main/assets/DemoCallWebWebApi.html?app_instance_name=ProbeMallApp')">1.通用api示例</a><br/><br/>
 		<h3>探针商城app业务相关</h3>
-		<a href="mall_h5_outlink.html">1.外链打开商城app示例</a><br/><br/>
-		<a href="test_alipay.html">2.调用app的支付【支付宝】示例</a><br/><br/>
-		<a href="test_sacn_code.html">3.调用app的扫码示例</a><br/><br/>
+		<a href="javascript:openUrl('mall_h5_outlink.html')">1.外链打开商城app示例</a><br/><br/>
+		<a href="javascript:openUrl('test_alipay.html')">2.调用app的支付【支付宝】示例</a><br/><br/>
+		<a href="javascript:openUrl('test_sacn_code.html')">3.调用app的扫码示例</a><br/><br/>
 		
     </body>
 </html>
