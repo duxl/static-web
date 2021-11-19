@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<meta charset='utf-8' /><meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+		<title>测试调用app的扫码功能</title>
+		<script>			
+			// app支付结果回调
+			function onAppSacnCodeResult(data) {
+				document.getElementById("scanResult").value = data;
+			}
+		</script>
+	</head>
+	<body>
+		<h1>测试调用app的扫码功能</h1>
+		<textarea id="scanResult" placeholder="扫码结果在这里显示" style="width:100%; height:100px;"></textarea>
+		<br/>
+		<br/>
+		<a href="javascript:ProbeMallApp.scanCode();">【去扫码】</a>
+	</body>
+</html>
