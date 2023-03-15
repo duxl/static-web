@@ -5,6 +5,7 @@
 		<script>
 			function init() {
 				document.getElementById("abc").href="myapp://oauth/discord?code="+location.search.split("=")[1];
+				document.getElementById("abc").innerText="点击连接打开app "+document.getElementById("abc").href
 			}
 		</script>
 	</head>
@@ -20,8 +21,8 @@
 		<br/>
 		<hr/>
 		<br/>
-		<a href="myapp://oauth/discord">打开连接myapp://oauth/discord</a><br/>
-		<a href="myapp://oauth/discord" id="abc">打开连接</a><br/>
+		<a href="myapp://my.oauth/discord">打开连接myapp://oauth/discord</a><br/>
+		<a href="myapp://my.oauth/discord" id="abc">打开连接</a><br/>
 		<br/>
 		<br/>
 
