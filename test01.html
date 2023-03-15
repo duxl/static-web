@@ -3,10 +3,12 @@
 		<meta charset='utf-8' /><meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
 		<title>H5测试页面</title>
 		<script>
-			
+			function init() {
+				document.getElementById("abc").href="myapp://oauth/discord?code="+location.search.split("=")[1];
+			}
 		</script>
 	</head>
-	<body>
+	<body onload="init()">
 		<b>currentUrl：</b><script>document.write(location.href);</script>
 		<br/>
 		<br/>
@@ -18,7 +20,8 @@
 		<br/>
 		<hr/>
 		<br/>
-		<a href="myapp://oauth/discord">打开连接myapp://oauth/discord</a>
+		<a href="myapp://oauth/discord">打开连接myapp://oauth/discord</a><br/>
+		<a href="myapp://oauth/discord" id="abc">打开连接</a><br/>
 		<br/>
 		<br/>
 
