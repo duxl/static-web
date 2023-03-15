@@ -4,7 +4,7 @@
 		<title>H5测试页面</title>
 		<script>
 			function init() {
-				document.getElementById("abc").href="myapp://oauth/discord?code="+location.search.split("=")[1];
+				document.getElementById("abc").href="myapp://my.oauth/discord?code="+location.search.split("=")[1];
 				document.getElementById("abc").innerText="点击连接打开app "+document.getElementById("abc").href
 			}
 		</script>
