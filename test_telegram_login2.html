@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <script src="https://telegram.org/js/telegram-widget.js" type="text/javascript"></script>
-        <script type="text/javascript">
-            function init() {
-                //这里唯一要做的就是把你机器人参数传入进去（获取机器人token哪里可以看到）
-	            window.Telegram.Login.auth({bot_id: '6113723504', request_access: 'write', embed: 1}, function (data) {
-	                console.log(data);//这里的data和之前返回的user数据和格式无差异
-	                alert("result: " + data);
-                    if (!data) {
-                        //失败时你需要做的逻辑
-                    }
-	            });
-            }
-        </script>
-    </head>
+<head>
+    <script src="https://telegram.org/js/telegram-widget.js" type="text/javascript"></script>
+    <script type="text/javascript">
+                function init() {
+                    //这里唯一要做的就是把你机器人参数传入进去（获取机器人token哪里可以看到）
+                    window.Telegram.Login.auth({bot_id: '6113723504', request_access: 'write', embed: 1}, function (data) {
+                        console.log(data);//这里的data和之前返回的user数据和格式无差异
+                        var result = {};
+                        if (!data) {
+                            //失败时你需要做的逻辑
+                            result.success = false;
+                        } else {
+                            result.success = true;
+                            result.data = data;
+                        }
+                        var resultJson = JSON.stringify(result);
+                        window.location.href = "app://result?data=" + resultJson;
+                    });
+                }
 
-    <body onload="init()">
 
-    </body>
+
+    </script>
+</head>
+
+<body onload="init()">
+    <!--
+        这个是telegram的登录页面，
+        参考资料 https://juejin.cn/post/7072557507595485221，
+        将登录后的信息重定向到app://result，
+        客服端通过拦截url的形式拿到数据
+    -->
+</body>
 
 </html>
