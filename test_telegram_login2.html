@@ -16,12 +16,9 @@
                             result.data = data;
                         }
                         var resultJson = JSON.stringify(result);
-                        window.location.href = "app://result?data=" + resultJson;
+                        window.location.href = "http://app.result?data=" + resultJson;
                     });
                 }
-
-
-
     </script>
 </head>
 
@@ -29,7 +26,7 @@
     <!--
         这个是telegram的登录页面，
         参考资料 https://juejin.cn/post/7072557507595485221，
-        将登录后的信息重定向到app://result，
+        将登录后的信息重定向到http://app.result，
         客服端通过拦截url的形式拿到数据
     -->
 </body>
