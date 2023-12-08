@@ -20,7 +20,7 @@
                         var a = document.createElement('a');
                         if(type == "pdf") {
                             blob.type = "application/pdf;charset-UTF-8";
-                        } else if(type=="doc") {
+                        } else if(type=="word") {
                             //blob.type="application/vnd.openxmlformats-officedocument.wordprocessingml.document;charset-UTF-8";
                             blob.type="application/msword;charset-UTF-8";
                         } else if(type=="txt") {
@@ -40,7 +40,7 @@
             var url = getQueryVariable("url");
             var gid = getQueryVariable("gid");
             var type = getQueryVariable("type");
-            var filename = getQueryVariable("filename");
+            var filename = decodeURIComponent(getQueryVariable("filename"));
             url = url + "?downloadtype="+type+"&gid="+gid+"&iskeyword=false&isproperty=false";
             var token = getQueryVariable("token");
             downLoad(url, type, filename, token);
