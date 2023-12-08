@@ -1,0 +1,49 @@
+<script>
+            function getQueryVariable(variable) {
+                   var query = window.location.search.substring(1);
+                   var vars = query.split("&");
+                   for (var i=0;i<vars.length;i++) {
+                           var pair = vars[i].split("=");
+                           if(pair[0] == variable){return pair[1];}
+                   }
+                   return("");
+            };
+            function downLoad(url, type,filename, token) {
+                var xhr = new XMLHttpRequest();
+                console.log("url=" + url);
+                xhr.open('GET', url, true);
+                xhr.setRequestHeader("Accesstoken", token);
+                xhr.responseType="blob";
+                xhr.onload = function(e) {
+                    if(this.status == 200) {
+                        var blob = this.response;
+                        var a = document.createElement('a');
+                        if(type == "pdf") {
+                            blob.type = "application/pdf;charset-UTF-8";
+                        } else if(type=="doc") {
+                            //blob.type="application/vnd.openxmlformats-officedocument.wordprocessingml.document;charset-UTF-8";
+                            blob.type="application/msword;charset-UTF-8";
+                        } else if(type=="txt") {
+                            blob.type="application/octet-stream;charset-UTF-8";
+                        }
+                        var url = URL.createObjectURL(blob);
+                        a.href = url;
+                        a.download = filename;
+                        a.click();
+                        window.URL.revokeObjectURL(url);
+
+                        //window.location.href="about:blank";
+                    }
+                }
+                xhr.send();
+            };
+            var url = getQueryVariable("url");
+            var gid = getQueryVariable("gid");
+            var type = getQueryVariable("type");
+            var filename = getQueryVariable("filename");
+            url = url + "?downloadtype="+type+"&gid="+gid+"&iskeyword=false&isproperty=false";
+            var token = getQueryVariable("token");
+            downLoad(url, type, filename, token);
+            document.write("文件下载")
+            //file:///Users/ninjia/AndroidStudioProjects/faxin/app/src/main/assets/html/download.html?type=txt&filename=abc.txt&gid=A297386&url=https://test-wx-pay.faxin.cn/m/v6/api/ftsy/downloadlist&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VycGF5bGliIjoia2V5d29yZCN6eWZsI2RmZmwjbGYjc2YjeGdrI2FtayN0d2sjZ2p0eSNjcHdzI3R3c3kjbGlua19nbGZ0I2xpbmtfZmx5ZyNsaW5rX3l5dGojYWx5eiNmbHN5I2ZscWsjZmx3eCNnYiNiemsjZnRzeSNmbHRzI2Zsd3MjbWZkI3N5ZHFfbWZkX2IxI3N5ZHFfbWZkX2IyI3N5ZHFfbWZkX2IzI3N5ZHFfbWZkX2I0I3N5ZHFfbWZkX2I1I3N5ZHFfbWZkX2I2I3N5ZHFfbWZkX2I3I3N5ZHFfbWZkX2I4I3hmenEjdHRtI2hzYWwjem53ZCNjcHdzX2pnI3RhenRfamcjeHpjZiNodGZiI3BseHojc3lkcV9zc19nc2Yjc3lkcV9zc194dGYjc3lkcV9zc196cWYjc3lkcV9zc19ieGYjc3lkcV9zc19wamYjc3lkcV9zc19xeXBjZiNzeWRxX3pzY3FfemxmI3N5ZHFfenNjcV96emYjc3lkcV96c2NxX3p3eHBqYmh0bCNzeWRxX3pzY3FfenpxZiNzeWRxX3pzY3FfanNqcmpiaHRsI3N5ZHFfenNjcV9qY2RsYnRzamJodGwjc3lkcV96c2NxX3NiZiNzeWRxX3pzY3FfZmJ6ZGp6ZiNzeWRxX3pzY3FfZmxkZiNzeWRxX3N0aGpfbWZkeGd0dyNzeWRxX3N0aGpfaGpxcXpyI3N5ZHFfc3Roal9oam1zZ3lzcyNzeWRxX3N0aGpfamNneXNzI3N5ZHFfc3Roal9zdGhqc2hwYyNzeWRxX3N0aGpfZmxtc3pydGsjc3lkcV9zd3NzaHNfc3dtc2d4ZmxzeWYjc3lkcV9zd3NzaHNfaHNmIiwiZW5kdGltZSI6IkZyaSBOb3YgMDEgMDA6MDA6MDAgQ1NUIDIwMjQiLCJleHAiOjE3MDQ1MTM2NDUsInVzZXJpZCI6IjEwMCIsInJlYWxuYW1lIjoiYXBwdGVzdCIsInVzZXJuYW1lIjoiYXBwdGVzdCJ9.-KSZNxx2-UyLmMiO0FWXOAHqPHaW6eqpVkC4wg9Ochk
+</script>
